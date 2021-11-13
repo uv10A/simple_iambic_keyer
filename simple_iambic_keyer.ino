@@ -18,12 +18,14 @@ void setup()
   pinMode(P_AUDIO, OUTPUT);
   pinMode(P_CW, OUTPUT);
   digitalWrite(P_CW, LOW);      // Start with key up
+speed = analogRead(P_SPEED)/2; // Read the keying speed from potmeter just read A0 at start of programme  you must reset to change it, i have trouble whith speed when  it's in the main loop  
+
 }
 
 // Main routine
 void loop()
 {
-  speed = analogRead(P_SPEED)/2; // Read the keying speed from potmeter
+  
   if(!digitalRead(P_DOT))        // If the dot lever is presssed..
   {
     keyAndBeep(speed);           // ... send a dot at the given speed
